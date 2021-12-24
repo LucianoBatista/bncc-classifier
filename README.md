@@ -62,4 +62,5 @@ Nesse projeto iremos criar um classificador de questão da BNCC
 - Naming notebooks: To name your notebooks is a good practice to put your name within the date and a descriptive name, for example: `luciano-20-11-numeric-eda.ipynb`
 - .gitignore: Every sensible information, or files that we don't can expose to the public will be put here on `.gitignore`.
 - Data: Don't put the dataset on the repository, is a good practice to put a indication of the file pointing to the place where the data is stored.
+- Running notebooks: To run your notebooks with the `Pipenv` you'll need to run `pipenv run jupyter lab`. Or you can use vscode to run those notebooks.
 
