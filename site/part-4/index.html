@@ -57,6 +57,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#exploratory-data-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -238,10 +243,64 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Part 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Part 4
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#target" class="md-nav__link">
+    Target
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-de-colunas" class="md-nav__link">
+    Drop de Colunas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bullettype" class="md-nav__link">
+    BulletType
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    Question
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -254,15 +313,124 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#target" class="md-nav__link">
+    Target
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-de-colunas" class="md-nav__link">
+    Drop de Colunas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bullettype" class="md-nav__link">
+    BulletType
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    Question
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
 
-  <h1>Part 4</h1>
-
-<p>Exemplo!!!</p>
+<h1 id="exploratory-data-analysis">Exploratory Data Analysis</h1>
+<p>Como foi explicado nos tópicos anteriores, iremos construir 4 diferentes classificadores e ambos terão sua análise exploratória dos dados, pois precisarão de uma nova coleta. </p>
+<p>Nesse primeiro momento, nós estamos focados na criação do primeiro classificador, que vai buscar classificar se a questão é Ensino Fundamental I e II (EFI e EFII) ou Ensino Médio (EM).</p>
+<h2 id="target">Target</h2>
+<p>Sendo assim, foram coletados 100k de observações onde seguem a seguinte distribuição:</p>
+<ul>
+<li><strong>Médio e Pré-Vestibular</strong>: 35676</li>
+<li><strong>Fundamental II</strong>: 33790</li>
+<li><strong>Fundamental I</strong>: 18379</li>
+<li><strong>Outras (Concurso, Militar, OAB)</strong>: 12155</li>
+</ul>
+<p>Aqui já foi identificado que precisaremos dropar algumas observações que não são úteis para nosso problema, que seriam as classes: Concurso, Militar e OAB.</p>
+<h2 id="drop-de-colunas">Drop de Colunas</h2>
+<p>O dataset também trouxe dados sobre o Componente Curricular, porém, como estamos tratando de uma cadeia de classificadores, essa é uma informação que a princípio o modelo não teria, e consequentemente não teria acesso também aos assuntos. Sendo assim, optamos por dropar essas colunas e permanecendo apenas com:</p>
+<ul>
+<li>id (int): id da questão no banco</li>
+<li>question: texto da questão</li>
+<li>bulletType: tipo da questão</li>
+<li>scholar_lvl: nível escolar (EM, EFI, EFII)</li>
+</ul>
+<h2 id="bullettype">BulletType</h2>
+<p>Essa variável trás 7 tipos de questões:</p>
+<ol>
+<li>Somatória</li>
+<li>Múltipla Escolha</li>
+<li>Certo e Errado</li>
+<li>Discursiva</li>
+<li>Redação ou items que é necessário enviar foto da resolução</li>
+<li>Questões com mais de uma alternativa certa</li>
+<li>Não representa nada em específico</li>
+</ol>
+<p>Dessa forma, entendemos que drop os tipos 5, 6 e 7 faria sentido:</p>
+<ul>
+<li>Redação não está envolvida no componente curricular de Linguagens e sua Tecnologias</li>
+<li>Tipo 6 possui muito poucas observações.</li>
+<li>Ao observar o conteúdo da questões tipo 7, não existe uma ordem no formato dessas questões, por isso, iremos dropar também.</li>
+</ul>
+<p>E a distribuição da variável <code>BulletType</code> ficou assim:</p>
+<ol>
+<li>2968</li>
+<li>68604</li>
+<li>1179</li>
+<li>13881</li>
+<li>999</li>
+<li>5</li>
+<li>209</li>
+</ol>
+<p>Onde temos muito mais <strong>questões do tipo múltipla-escolha</strong>, provavelmente por ser a mais utilizada em simulados tipo Enem. </p>
+<h2 id="question">Question</h2>
+<p>Sendo assim, nos resta analisar a variável principal do dataset (<code>question</code>). Apesar de ter uma série de análises que seria interessante realizar, observamos que maior parte delas necessitaria de um texto o mais limpo possível. </p>
+<p>O texto das questões são exibidos no formato web, então temos uma quantidade bem grande <strong>tags html</strong> para remover. Então esse se tornou nosso primeiro step do data cleaning. Seguimos com uma remoção de números, pois existem muitos números indicando alternativas das questões, assim que em questões somatórias existe a contagem das respostas (00, 11, 22 ...).</p>
+<p>Realizar uma contagem dos números pode ser uma boa variável quando estivermos classificando o Componente Curricular.</p>
+<p>Após isso, seguimos as seguintes etapas: </p>
+<ul>
+<li>Remoção de pontuação</li>
+<li>lowercase das palavras</li>
+<li>remoção de stopwords padrões baseada na lib NLTK.</li>
+</ul>
 
               
             </article>
