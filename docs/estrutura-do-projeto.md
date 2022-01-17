@@ -5,6 +5,7 @@ authors:
     - Luciano
     - Pedro
     - Brisa
+    - Will
 date: 2021-24-12
 ---
 
@@ -45,8 +46,3 @@ Diante desse problema, **iremos trazer uma solução que auxiliará as escolas e
 Acreditamos que o Projeto impactará duas áreas diferentes: o campo dos negócios e o pedagógico. No quesito de **negócios** presumimos à diminuição da necessidade de profissionais envolvidos no processo de classificação de questões, diminuindo assim o custo para empresas que pagam por esse serviço e possibilitando que esses profissionais possam atuar de forma mais eficiente em diferentes demandas, como na elaboração de questões para o banco de dados, por exemplo. No âmbito de **vantagem competitiva**, as empresas que incorporarem nossa tecnologia inovadora teriam um diferencial de mercado dentre outras EdTechs - startups focadas no desenvolvimento de soluções tecnológicas para a educação.
 
 No campo **pedagógico**, a implementação do Classificador tornaria mais acessível e eficiente a aplicação da BNCC pelos profissionais da educação, possibilitando assim que os currículos escolares estejam melhor alinhados à normativa do MEC. Desse modo, alcançaremos o principal objetivo do Projeto, no qual teremos um ensino mais direcionado e eficiente, impactando diretamente e de forma positiva o aprendizado estudantil.
-
-
-## Desenho da solução
-
-Este projeto visa a implementação de um algoritmo de Machine Learning usando técnicas de Processamento de Linguagem Natural para classificação dos códigos da Base Nacional Comum Curricular (BNCC). Será utilizada uma abordagem de segmentação do problema em quatro partes, referentes às quatro partes do código BNCC. Dessa forma, será obtida, ao final de todas as etapas, uma probabilidade combinada dos quatro modelos sequenciais de uma questão estar classificada à determinado código da BNCC. 

@@ -5,3 +5,15 @@ markdown_extensions:
   - meta
   - attr_list
   - md_in_html
+  - tables
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+nav:
+  - Home: "index.md"
+  - Estrutura do Projeto: "estrutura-do-projeto.md"
+  - Desenho da solução: "part-2.md"
+  - Dados e Solução: "part-3.md"
+  - Análise Exploratória: "part-4.md"

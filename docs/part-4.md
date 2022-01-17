@@ -1,6 +1,6 @@
 ---
-title: Prova
-summary: Colocando a solução em Produção.
+title: EDA
+summary: Análise Exploratória de Dados.
 authors:
     - Luciano
     - Pedro
@@ -8,7 +8,7 @@ authors:
 date: 2021-24-12
 ---
 
-# Exploratory Data Analysis
+# Análise Exploratória de Dados
 
 Como foi explicado nos tópicos anteriores, iremos construir 4 diferentes classificadores e ambos terão sua análise exploratória dos dados, pois precisarão de uma nova coleta. 
 
