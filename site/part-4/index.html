@@ -298,6 +298,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tamanho-das-sentencas" class="md-nav__link">
+    Tamanho das Sentenças
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -360,6 +367,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tamanho-das-sentencas" class="md-nav__link">
+    Tamanho das Sentenças
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -378,21 +392,66 @@
 <p>Nesse primeiro momento, nós estamos focados na criação do primeiro classificador, que vai buscar classificar se a questão é Ensino Fundamental I e II (EFI e EFII) ou Ensino Médio (EM).</p>
 <h2 id="target">Target</h2>
 <p>Sendo assim, foram coletados 100k de observações onde seguem a seguinte distribuição:</p>
-<ul>
-<li><strong>Médio e Pré-Vestibular</strong>: 35676</li>
-<li><strong>Fundamental II</strong>: 33790</li>
-<li><strong>Fundamental I</strong>: 18379</li>
-<li><strong>Outras (Concurso, Militar, OAB)</strong>: 12155</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Etapas de Ensino</th>
+<th>Quantidade de Observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Médio e Pré-Vestibular</td>
+<td>35.676</td>
+</tr>
+<tr>
+<td>Fundamental I</td>
+<td>33.790</td>
+</tr>
+<tr>
+<td>Fundamental II</td>
+<td>18379</td>
+</tr>
+<tr>
+<td>Outras (Concurso, Militar, OAB)</td>
+<td>12.155</td>
+</tr>
+</tbody>
+</table>
 <p>Aqui já foi identificado que precisaremos dropar algumas observações que não são úteis para nosso problema, que seriam as classes: Concurso, Militar e OAB.</p>
 <h2 id="drop-de-colunas">Drop de Colunas</h2>
 <p>O dataset também trouxe dados sobre o Componente Curricular, porém, como estamos tratando de uma cadeia de classificadores, essa é uma informação que a princípio o modelo não teria, e consequentemente não teria acesso também aos assuntos. Sendo assim, optamos por dropar essas colunas e permanecendo apenas com:</p>
-<ul>
-<li>id (int): id da questão no banco</li>
-<li>question: texto da questão</li>
-<li>bulletType: tipo da questão</li>
-<li>scholar_lvl: nível escolar (EM, EFI, EFII)</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Colunas</th>
+<th>type</th>
+<th>Representação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><em>int</em></td>
+<td>id da questão no banco</td>
+</tr>
+<tr>
+<td>question</td>
+<td><em>str</em></td>
+<td>texto da questão</td>
+</tr>
+<tr>
+<td>bulletType</td>
+<td><em>int</em></td>
+<td>tipo da questão</td>
+</tr>
+<tr>
+<td>scholar_lvl</td>
+<td><em>str</em></td>
+<td>nível escolar</td>
+</tr>
+</tbody>
+</table>
 <h2 id="bullettype">BulletType</h2>
 <p>Essa variável trás 7 tipos de questões:</p>
 <ol>
@@ -411,26 +470,68 @@
 <li>Ao observar o conteúdo da questões tipo 7, não existe uma ordem no formato dessas questões, por isso, iremos dropar também.</li>
 </ul>
 <p>E a distribuição da variável <code>BulletType</code> ficou assim:</p>
-<ol>
-<li>2968</li>
-<li>68604</li>
-<li>1179</li>
-<li>13881</li>
-<li>999</li>
-<li>5</li>
-<li>209</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th>Tipo da Questão</th>
+<th>Quantidade de Observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2.968</td>
+</tr>
+<tr>
+<td>2</td>
+<td>68.604</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1.179</td>
+</tr>
+<tr>
+<td>4</td>
+<td>13.881</td>
+</tr>
+<tr>
+<td>5</td>
+<td>999</td>
+</tr>
+<tr>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr>
+<td>7</td>
+<td>209</td>
+</tr>
+</tbody>
+</table>
 <p>Onde temos muito mais <strong>questões do tipo múltipla-escolha</strong>, provavelmente por ser a mais utilizada em simulados tipo Enem. </p>
 <h2 id="question">Question</h2>
-<p>Sendo assim, nos resta analisar a variável principal do dataset (<code>question</code>). Apesar de ter uma série de análises que seria interessante realizar, observamos que maior parte delas necessitaria de um texto o mais limpo possível. </p>
-<p>O texto das questões são exibidos no formato web, então temos uma quantidade bem grande <strong>tags html</strong> para remover. Então esse se tornou nosso primeiro step do data cleaning. Seguimos com uma remoção de números, pois existem muitos números indicando alternativas das questões, assim que em questões somatórias existe a contagem das respostas (00, 11, 22 ...).</p>
-<p>Realizar uma contagem dos números pode ser uma boa variável quando estivermos classificando o Componente Curricular.</p>
+<p>Sendo assim, nos resta analisar a variável principal do dataset (<code>question</code>). Apesar de ter uma série de análises que seria interessante realizar, observamos que maior parte delas necessitaria quer o texto estivesse o mais limpo possível. </p>
+<p>O texto das questões são exibidos no formato web, então temos uma quantidade bem grande de <strong>tags html</strong> para remover. Esse se tornou nosso primeiro step do data cleaning. Seguimos com uma remoção de números, pois existem muitos números indicando alternativas das questões, assim que em questões somatórias existe o valor de cada item (00, 11, 22 ...).</p>
+<p>Realizar uma contagem dos números em cada questão pode ser uma boa variável quando estivermos classificando o <strong>Componente Curricular</strong>.</p>
 <p>Após isso, seguimos as seguintes etapas: </p>
 <ul>
 <li>Remoção de pontuação</li>
 <li>lowercase das palavras</li>
 <li>remoção de stopwords padrões baseada na lib NLTK.</li>
 </ul>
+<h2 id="tamanho-das-sentencas">Tamanho das Sentenças</h2>
+<p>Investigamos o tamanho das sentenças no dataset, na busca de identificação de algum padrão. Vimos que maior parte dos valores estão tendendo a 1, evidenciando uma distribuição com assimetria positiva. Veja os histogramas:</p>
+<p><img alt="dist-em-sentences" src="../imgs/distr-sent-em.png" />
+<img alt="dist-fundi-sentences" src="../imgs/dist-sent-fundI.png" />
+<img alt="dist-fundii-sentences" src="../imgs/dist-sent-fundII.png" /></p>
+<p>Aqui apenas o Fundamental I possui uma <em>distribuição um pouco mais dispersa</em> e com <em>valores extremos menores</em> que as outras duas classes. </p>
+<p>O valor mínimo das sentenças foi de 1 e o máximo foi de 62.275 mil caracteres. Sendo um valor bem extremo de caracteres e que acontece pouquíssimas vezes, decidimos remover esses registros e observar os boxplots das classes de <code>school_step</code>.</p>
+<p><img alt="boxplot-qt-caracs" src="../imgs/boxplot-qt-caracs.png" /></p>
+<p>Veja que aparentemente, sem os outliers extremos, questões do tipo Médio e Pré-Vestibular possuem maior quantidade de caracteres na mediana, seguido do Fundamental II e por fim o Fundamental I.</p>
+<p>O contrário dos valores extremos nas questões também chamou a atenção, pois questões que possuem apenas 1 caracter provavelmente está com alguma inconsistência. Em uma análise futura iremos investigar qual o tamanho mínimo de caracteres que se torna significativo para exercer um trabalho de classificação neste dataset.</p>
+<p>Para auxiliar nessa próxima etapa, avaliamos a quantidade de observações existentes em cada intervalo do tamanho dos caracteres. Os intervalos podem ser visto no eixo vertical do gráfico abaixo.</p>
+<p><img alt="qtt-obs" src="../imgs/qtt_obs.png" /></p>
+<p>Esse plot nos mostra que possivelmente teremos um problema de quantidade de dados disponíveis caso optarmos por remover questões com tamanho de 1 a 9, pois maior parte do dataset possui observações com tamanho de 1 a 9.</p>
 
               
             </article>
