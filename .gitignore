@@ -5,3 +5,4 @@
 # python stuffs
 /src/**/__pycache__/
 .vscode/
+.idea/

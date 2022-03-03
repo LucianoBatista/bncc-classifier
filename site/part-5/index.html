@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.3, mkdocs-material-8.1.3" name="generator"/>
-<title>Dados e Solução - BNCC Classifier</title>
+<title>API (MVP) - BNCC Classifier</title>
 <link href="../assets/stylesheets/main.edf004c2.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.e6a45f82.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,7 +20,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#data-tracking">
+<a class="md-skip" href="#api">
           Skip to content
         </a>
 </div>
@@ -44,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Dados e Solução
+              API (MVP)
             
           </span>
 </div>
@@ -111,14 +111,24 @@
         Desenho da solução
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../part-3/">
+        Dados e Solução
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../part-4/">
+        Análise Exploratória
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Dados e Solução
+          API (MVP)
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Dados e Solução
+        API (MVP)
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -127,32 +137,31 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#data-tracking">
-    Data Tracking
+<a class="md-nav__link" href="#stack">
+    Stack
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#fonte">
-    Fonte
+<a class="md-nav__link" href="#infraestrutura">
+    Infraestrutura
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#base-de-dados">
-    Base de Dados
+<a class="md-nav__link" href="#como-utilizar">
+    Como utilizar?
+  </a>
+<nav aria-label="Como utilizar?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rotas">
+    Rotas
   </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../part-4/">
-        Análise Exploratória
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../part-5/">
-        API (MVP)
-      </a>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -169,19 +178,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#data-tracking">
-    Data Tracking
+<a class="md-nav__link" href="#stack">
+    Stack
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#fonte">
-    Fonte
+<a class="md-nav__link" href="#infraestrutura">
+    Infraestrutura
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#base-de-dados">
-    Base de Dados
+<a class="md-nav__link" href="#como-utilizar">
+    Como utilizar?
   </a>
+<nav aria-label="Como utilizar?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rotas">
+    Rotas
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -190,62 +208,68 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>Dados e Solução</h1>
-<h2 id="data-tracking">Data Tracking</h2>
-<table>
-<thead>
-<tr>
-<th>Perguntas de Negócio</th>
-<th>Dados</th>
-<th>Base/Calculada</th>
-<th>Cálculo</th>
-<th>Fonte de dado</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Como classificar questões de acordo a BNCC?</td>
-<td>Questões previamente classificadas</td>
-<td>Calculada</td>
-<td><ins class="critic">à definir</ins></td>
-<td>Base de dados Studos</td>
-</tr>
-<tr>
-<td>Como desenvolver raciocínio lógico/matemático nas escolas?</td>
-<td>Questões Classificadas</td>
-<td>Calculada</td>
-<td><ins class="critic">à definir</ins></td>
-<td>Base de dados Studos</td>
-</tr>
-<tr>
-<td>Como melhorar a eficiência do ensino na sala de aula?</td>
-<td>App com Questões Classificadas</td>
-<td>Calculada</td>
-<td><ins class="critic">à definir</ins></td>
-<td>Base de dados Studos</td>
-</tr>
-<tr>
-<td>Como ajudar o professor na elaboração de avaliações e atividades nas escolas</td>
-<td>App com Questões Classificadas</td>
-<td>Calculada</td>
-<td><ins class="critic">à definir</ins></td>
-<td>Base de dados Studos</td>
-</tr>
-</tbody>
-</table>
-<h2 id="fonte">Fonte</h2>
-<p>Como fonte de dados, iremos utilizar uma base disponibilizada pela Studos, uma EdTech onde o integrante do grupo Luciano, trabalha. A base não contém informações sensíveis e conta com questões classificadas dentro dos códigos da BNCC, assim como informações necessárias para a criação dos quatro classificadores.</p>
-<p>Contamos com a liberação de <strong>+4M de questões classificadas</strong> com suas áreas de conhecimento e assuntos. Dessas, <strong>8.4k possuem classificação das habilidades da BNCC.</strong>   Além disso, tem acesso público ao documento da BNCC contendo informações específicas dos códigos.</p>
-<h2 id="base-de-dados">Base de Dados</h2>
-<p>Como iremos trabalhar na construção de quatro classificadores é muito provável que ao longo do tempo precisemos adicionar ou remover variáveis da análise. No momento, o primeiro dataset que temos em mão para trabalhar vai conter as seguintes variáveis:</p>
+<h1 id="api">API</h1>
+<p>A ideia inicial do projeto é ter como principal entregável uma API que consiga realizar a classificação dos items enviados de acordo com os códigos da BNCC (explicado com maior detalhes na etapa de <a href="https://lucianobatista.github.io/bncc-classifier/estrutura-do-projeto/">Estrutura do Projeto</a>).</p>
+<p>O <strong>principal fluxo</strong> de funcionamento da API consiste no esquema abaixo:</p>
+<p><img alt="api-workflow" src="../imgs/api-workflow-simple.png"/></p>
+<p>Lembrando que, o nosso modelo de classificação é na verdade um ensemble de 4 outros modelos, que irão ser construídos para entregar o código final da BNCC, apresentado acima.</p>
+<p>A partir das etapas de experimentação, estamos produtizando o código e levando nossas etapas de pré-processamento e modelagem para dentro da API.</p>
+<p>Para melhor entendimento do nosso produto, prefirimos dividir a informação em 4 etapas:</p>
 <ul>
-<li><strong>question (str)</strong>: texto contendo o conteúdo da questão</li>
-<li><strong>bulletType (int)</strong>: tipo da questão, se foi múltipla-escolha, certo ou errado, discursiva…</li>
-<li><strong>sst_name (str)</strong>: assunto da questão</li>
-<li><strong>ss_name (str)</strong>: disciplina da questão</li>
-<li><strong>ssa_name (str)</strong>: área de conhecimento (Fundamental I, Fundamental II ou Ensino Médio)</li>
-<li><strong>code (str)</strong>: conjunto de códigos da BNCC</li>
-<li><strong>description (str)</strong>: descrição dos códigos da BNCC</li>
+<li>Stack técnica: quais ferramentas irão ser utilizadas na construção da API?</li>
+<li>Infraestrutura: como os dados irão trafegar através dos nossos serviços?</li>
+<li>Como utilizar o Swagger?</li>
+</ul>
+<h2 id="stack">Stack</h2>
+<p><img alt="stack" src="../imgs/stack.png"/></p>
+<p>Inicialmente estamos estabelecendo algumas ferramentas que irão nos auxiliar na construção da API, abaixo estamos fornecendo uma breve descrição das principais utilizadas:</p>
+<ul>
+<li><strong>FastAPI</strong>: um framework em python que auxilia na criação de diferentes tipos de APIs.</li>
+<li><strong>Celery</strong>: também desenvolvido em python, e nos permite adicionar um sistema de filas de forma simples e direta.</li>
+<li><strong>Postgres</strong>: banco de dados relacional, para mantermos os registros de interação com a API.</li>
+<li><strong>Docker</strong>: generenciamento de todos os serviços através de containers.</li>
+</ul>
+<h2 id="infraestrutura">Infraestrutura</h2>
+<p>O esquema apresentado abaixo visa descrever o fluxo da informação dentre as diferentes camada da aplicação, promovendo um entendimento de como cada rota da API irá funcionar. A descrição de cada rota pode ser encontrada no tópico seguinte.</p>
+<div class="mermaid">sequenceDiagram
+Note left of User: /api/v1/training
+User-&gt;&gt;FastAPI: Send model to training
+FastAPI --&gt;&gt; User: Return the id of the training model
+FastAPI-&gt;&gt;Postgres: Send model registration
+Celery (worker)--&gt;&gt;Postgres: Get the model to train
+Celery (worker)--&gt;&gt;Postgres: Update trained model
+
+Note left of User: /api/v1/training/{model_id}
+User -&gt;&gt; FastAPI: Get the model training status
+FastAPI -&gt;&gt; Postgres: Get the model training status
+FastAPI --&gt;&gt; User: Return the status of the model training
+
+Note left of User: /api/v1/model/predict
+User -&gt;&gt; FastAPI: Classify which BNCC code it is
+FastAPI -&gt;&gt; Postgres: Register the prediction log
+FastAPI --&gt;&gt; User: Item Classification
+
+Note left of User: /api/v1/model/healthy
+User -&gt;&gt; FastAPI: Check current model metrics
+FastAPI -&gt;&gt; Postgres: Filter models by enabled=True
+FastAPI --&gt;&gt; User: Return 6 different metrics of healthy of the model
+
+Note left of User: /api/v1/status
+User -&gt;&gt; FastAPI: Check the status of the app
+FastAPI --&gt;&gt; User: Return if the API is working
+</div>
+<h2 id="como-utilizar">Como utilizar?</h2>
+<p>Nossa API, a princípio conta apenas com o Swagger de interface gráfica. Essa interface de utilização é bem simples, com principal objetivo de interação crua com a API, e não visa ser uma versão para qualquer tipo de usuário. No entanto, entendemos que a mesma já está entregando bastante valor, pois conseguimos rapidamente <em>interagir com o produto</em> e o <em>observar o impacto das mudanças realizadas no código</em>.</p>
+<p>Ainda não realizamos o deploy dessa aplicação, e por enquanto a mesma está disponível apenas em ambiente local, porém, a tela do Swagger pode ser vista na imagem abaixo. Onde é possível interagir com todas as rotas disponíveis na API de forma bastante intuitiva.</p>
+<p><img alt="swagger" src="../imgs/swagger.png"/></p>
+<p>Para utilização do Swagger, basta seguir as instruções:</p>
+<p><img alt="swagger-training" src="../imgs/swagger-training.png"/></p>
+<h3 id="rotas">Rotas</h3>
+<ul>
+<li><strong>Status</strong>: Essa rota é um GET, e nos retornará o status do serviço da API.</li>
+<li><strong>Training</strong>: Essa rota é um POST, onde será enviado dados para API, possibilitando o retreino do modelo, e adoção em produção do modelo que performar melhor.</li>
+<li><strong>Predict</strong>: Essa é a rota é um POST e será utilizada para classificação do item de acordo a BNCC, portanto, precisa receber como dado, o item.</li>
+<li><strong>Model Healthy</strong>: Com o modelo em produção, pode ser interessante saber quais são as métricas do modelo atual rodando na API. Para isso, essa rota será um GET que vai retornar o quão bem o modelo vai estar performando.</li>
 </ul>
 </article>
 </div>
@@ -253,7 +277,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Desenho da solução" class="md-footer__link md-footer__link--prev" href="../part-2/" rel="prev">
+<a aria-label="Previous: Análise Exploratória" class="md-footer__link md-footer__link--prev" href="../part-4/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -262,21 +286,8 @@
 <span class="md-footer__direction">
                 Previous
               </span>
-              Desenho da solução
-            </div>
-</div>
-</a>
-<a aria-label="Next: Análise Exploratória" class="md-footer__link md-footer__link--next" href="../part-4/" rel="next">
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                Next
-              </span>
               Análise Exploratória
             </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
 </div>
 </a>
 </nav>
@@ -299,5 +310,5 @@
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
 <script src="../assets/javascripts/bundle.e1a181d9.min.js"></script>
-</body>
+<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>
