@@ -7,8 +7,9 @@ import pandas as pd
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-PUNCT_TO_REMOVE = string.punctuation
 nltk.download("stopwords")
+
+PUNCT_TO_REMOVE = string.punctuation
 pt_stopwords = set(stopwords.words("portuguese"))
 en_stopwords = set(stopwords.words("english"))
 

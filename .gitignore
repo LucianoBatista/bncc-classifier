@@ -1,8 +1,11 @@
 /.ipynb_checkpoints
 /analysis/notebooks/.ipynb_checkpoints
 /data/**/*.csv
+/references/bncc_reference.pdf
 
 # python stuffs
 /src/**/__pycache__/
 .vscode/
 .idea/
+.mypy_cache
+.env
