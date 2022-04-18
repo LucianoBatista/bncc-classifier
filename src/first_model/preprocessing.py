@@ -67,9 +67,14 @@ class PreProcessingFirstModel:
         remove_frq_rare = cleaning.RemoveFrqRare(df=df)
         remove_frq_rare.calc_frq_words()
         remove_frq_rare.calc_rare_words()
-        self.data = remove_frq_rare.remove_frq_and_rare()
+        remove_frq_rare = remove_frq_rare.remove_frq_and_rare()
+
+        # removing registers with zero chars
+        remove_frq_rare["words_counts"] = remove_frq_rare["questions_clean"].apply(len)
+        final_df = remove_frq_rare[remove_frq_rare["words_counts"] != 0]
+        self.data = final_df.copy()
 
     def export_cleaned_data(self, path: Union[str, Path]) -> None:
         # exporting the dataset
-        self.data = self.data[["id", "questions_clean", "target_enc"]]
-        self.data.to_csv(path, index=False)
+        df_to_save = self.data[["id", "questions_clean", "target_enc", "words_counts"]]
+        df_to_save.to_csv(path, index=False)
