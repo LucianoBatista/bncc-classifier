@@ -1,5 +1,5 @@
-from preprocessing import PreProcessingFirstModel
-from train import Modeling
+from src.first_model.preprocessing import PreProcessingFirstModel
+from src.first_model.train import Modeling
 
 # Luciano
 #PATH_RAW = "/home/luba/Documents/DS/projects-courses-ongoing/bncc-classifier-[doing]/data/raw/bncc_first_classifier.csv"  # noqa

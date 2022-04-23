@@ -1,0 +1,6 @@
+{
+  "python.formatting.provider": "black",
+  "code-runner.executorMap": {
+    "python": "export PYTHONPATH=$workspaceRoot && $pythonPath -u $fullFileName"
+  }
+}

@@ -5,7 +5,6 @@
 
 # python stuffs
 /src/**/__pycache__/
-.vscode/
 .idea/
 .mypy_cache
 .env
