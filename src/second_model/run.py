@@ -1,5 +1,5 @@
-from src.first_model.preprocessing import PreProcessingFirstModel
-from src.first_model.train import Modeling
+from src.second_model.preprocessing import PreProcessingSecondModel
+from src.second_model.train import Modeling
 
 # Luciano
 #PATH_RAW = "/home/luba/Documents/DS/projects-courses-ongoing/bncc-classifier-[doing]/data/raw/bncc_first_classifier.csv"  # noqa
@@ -7,10 +7,10 @@ from src.first_model.train import Modeling
 
 #will
 PATH_RAW = "/home/wilsonfranccadeolveiraneto/Documentos/TERA/bncc-classifier/data/raw/bncc_first_classifier.csv"  # noqa
-PATH_TO_SAVE = "/home/wilsonfranccadeolveiraneto/Documentos/TERA/bncc-classifier/data/curated/bncc_first_classifier_cleaned.csv"  # noqa
+PATH_TO_SAVE = "/home/wilsonfranccadeolveiraneto/Documentos/TERA/bncc-classifier/data/curated/bncc_second_classifier_cleaned.csv"  # noqa
 
 def main():
-    prepro_obj = PreProcessingFirstModel(PATH_RAW)
+    prepro_obj = PreProcessingSecondModel(PATH_RAW)
     prepro_obj.prepro()
     prepro_obj.export_cleaned_data(PATH_TO_SAVE)
     modeling = Modeling(prepro_obj.data)
