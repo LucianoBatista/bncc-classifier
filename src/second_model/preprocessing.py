@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Union
 
 import pandas as pd
+from nltk.tokenize import word_tokenize
 from sklearn import preprocessing
 
 from src.cleaning import cleaning
@@ -34,6 +35,7 @@ class PreProcessingSecondModel:
 
         # train on the column we want encode
         lb_enc.fit(df["target"])
+        print(lb_enc.classes_)
         df["target_enc"] = lb_enc.transform(df["target"])
 
         # chaining all cleaning steps
@@ -52,18 +54,20 @@ class PreProcessingSecondModel:
             .apply(cleaning.remove_quote)
             .apply(lambda x: cleaning.remove_pt_stopwords(x))
             .apply(lambda x: cleaning.remove_en_stopwords(x))
+            .apply(word_tokenize)
         )
 
         # class to remove frq and rare, we can choose how many rare or frq words to remove
-        remove_frq_rare = cleaning.RemoveFrqRare(df=df)
-        remove_frq_rare.calc_frq_words()
-        remove_frq_rare.calc_rare_words()
-        remove_frq_rare = remove_frq_rare.remove_frq_and_rare()
+        remove_frq_rare_obj = cleaning.RemoveFrqRare(df=df)
+        remove_frq_rare_obj.calc_frq_words()
+        remove_frq_rare_obj.calc_rare_words()
+        remove_frq_rare = remove_frq_rare_obj.remove_frq_and_rare()
 
         # removing registers with zero chars
         remove_frq_rare["words_counts"] = remove_frq_rare["questions_clean"].apply(len)
         final_df = remove_frq_rare[remove_frq_rare["words_counts"] != 0]
         self.data = final_df.copy()
+        return remove_frq_rare_obj.frq_words, remove_frq_rare_obj.rare_words
 
     def export_cleaned_data(self, path: Union[str, Path]) -> None:
         # exporting the dataset

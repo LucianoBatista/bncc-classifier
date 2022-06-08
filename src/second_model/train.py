@@ -1,6 +1,9 @@
+import pickle
+
 import pandas as pd
 from nltk.tokenize import word_tokenize
 from sklearn import feature_extraction, linear_model, metrics, model_selection
+from sklearn.pipeline import Pipeline
 
 
 class Modeling:
@@ -17,9 +20,7 @@ class Modeling:
         self.data = df.copy()
 
     def split_data(self):
-        X = self.data.drop(
-            ["id", "words_counts", "question_tokens", "target_enc"], axis=1
-        )
+        X = self.data.drop(["id", "words_counts", "target_enc"], axis=1)
         y = self.data["target_enc"]
         (
             self.X_train,
@@ -27,6 +28,27 @@ class Modeling:
             self.y_train,
             self.y_test,
         ) = model_selection.train_test_split(X, y, random_state=1)
+
+    def saving_pipeline(self):
+
+        pipe = Pipeline(
+            [
+                ("count_vect", feature_extraction.text.CountVectorizer()),
+                (
+                    "logistic_regression",
+                    linear_model.LogisticRegression(class_weight="balanced"),
+                ),
+            ]
+        )
+        print(self.X_train.columns)
+        pipe.fit(self.X_train["questions_clean"], self.y_train)
+
+        # saving
+        with open(
+            "/home/luba/Documents/DS/projects-courses-ongoing/bncc-classifier-[doing]/models/lr_second_model.bin",
+            "wb",
+        ) as lr_out:
+            pickle.dump(pipe, lr_out)
 
     def make_bag_of_words(self):
         vect_bow = feature_extraction.text.CountVectorizer()

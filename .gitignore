@@ -8,3 +8,5 @@
 .idea/
 .mypy_cache
 .env
+models/lr_second_model.bin
+models/lr.bin

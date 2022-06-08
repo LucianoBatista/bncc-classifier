@@ -118,14 +118,23 @@ class RemoveFrqRare:
         self.rare_words = []
 
     def calc_frq_words(self):
-        cnt = Counter()
+        final_list = [
+            subitem for item in self.df["questions_clean"] for subitem in item
+        ]
+        cnt = Counter(final_list)
         self.frq_words = set([w for (w, wc) in cnt.most_common(self.n_frq_words)])
+        # print(self.frq_words)
 
     def calc_rare_words(self):
-        cnt = Counter()
+        # joining all words
+        final_list = [
+            subitem for item in self.df["questions_clean"] for subitem in item
+        ]
+        cnt = Counter(final_list)
         self.rare_words = set(
             [w for (w, wc) in cnt.most_common()[: -self.n_rare_words - 1 : -1]]  # noqa
         )
+        # print(self.rare_words)
 
     def remove_frq_words(self, text: str):
         return " ".join(
