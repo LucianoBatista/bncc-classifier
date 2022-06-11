@@ -1,6 +1,6 @@
 # #%%
 # # Transforming all of questions to string
-# df_bncc_copy_targets_bncc["questions"] = df_bncc_copy_targets_bncc["questions"].astype(
+# df_bncc_copy_targets_bncc["questions"] = df_bncc_copy_bncc["questions"].astype(
 #     str
 # )
 # #%%

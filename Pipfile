@@ -18,6 +18,7 @@ pillow = "==8.4.0"
 ipykernel = "*"
 pexpect = "*"
 mkdocs-mermaid2-plugin = "==0.5.2"
+lightgbm = "*"
 
 [dev-packages]
 black = "*"

@@ -44,10 +44,7 @@ class PreProcessingFirstModel:
 
         # train on the column we want encode
         lb_enc.fit(df["target"])
-        print(df["target"])
         df["target_enc"] = lb_enc.transform(df["target"])
-        print(df["target_enc"])
-        print(lb_enc.classes_)
 
         # chaining all cleaning steps
         df["questions_clean"] = (

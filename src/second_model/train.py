@@ -40,7 +40,6 @@ class Modeling:
                 ),
             ]
         )
-        print(self.X_train.columns)
         pipe.fit(self.X_train["questions_clean"], self.y_train)
 
         # saving
