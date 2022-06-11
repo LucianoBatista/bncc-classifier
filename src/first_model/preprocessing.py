@@ -63,6 +63,7 @@ class PreProcessingFirstModel:
             .apply(lambda x: cleaning.remove_pt_stopwords(x))
             .apply(lambda x: cleaning.remove_en_stopwords(x))
             .apply(word_tokenize)
+            .apply(lambda x: cleaning.remove_punctuation_2(x))
         )
 
         # class to remove frq and rare, we can choose how many rare or frq words to remove

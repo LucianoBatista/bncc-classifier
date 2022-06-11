@@ -49,6 +49,7 @@ def remove_html(text):
 
 
 def remove_punctuation_2(text):
+    text = str(text)
     return text.translate(str.maketrans("", "", PUNCT_TO_REMOVE))
 
 
