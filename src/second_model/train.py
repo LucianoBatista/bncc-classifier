@@ -57,7 +57,7 @@ class Modeling:
         return X_train_trans, X_test_trans
 
     def train_evaluate_log_reg(self, X_train_trans, X_test_trans):
-        log_reg = linear_model.LogisticRegression(class_weight="balanced")
+        log_reg = linear_model.LogisticRegression(C=0.1, max_iter=500)
         log_reg.fit(X_train_trans, self.y_train)
         y_pred_class = log_reg.predict(X_test_trans)
         print(metrics.classification_report(self.y_test, y_pred_class))

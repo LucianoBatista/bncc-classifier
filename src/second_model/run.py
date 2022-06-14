@@ -18,7 +18,7 @@ def main():
     modeling = Modeling(prepro_obj.data)
     # modeling.tokenization()
     modeling.split_data()
-    modeling.saving_pipeline()
+    # modeling.saving_pipeline()
     X_train_trans, X_test_trans = modeling.make_bag_of_words()
     modeling.train_evaluate_log_reg(
         X_train_trans=X_train_trans, X_test_trans=X_test_trans
