@@ -26,6 +26,7 @@ pre-commit = "==2.14.1"
 isort = "*"
 mypy = "*"
 flake8 = "*"
+ipykernel = "*"
 
 [requires]
 python_version = "3.9"
